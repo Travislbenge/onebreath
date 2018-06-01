@@ -53,12 +53,11 @@ p {
 
 // Custom Classes
 .title-box {
-margin-top: 20px;
-margin-bottom: 20px;
+
 }
 
 .sub-title-box {
-margin-bottom: 80px;
+
 }
 
 .middle-content {
@@ -152,5 +151,13 @@ margin-bottom: 80px;
   border-radius: 50%;
 }
 
+.form-inline {
 
+  width: 180px;
+  background-color: gray;
+}
+.form-container {
+  display: flex;
+  text-align: center;
+}
 
