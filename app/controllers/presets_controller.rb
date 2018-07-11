@@ -3,7 +3,8 @@ class PresetsController < ApplicationController
   before_action :set_user, only: [:new, :edit ]
 
   def index
-    @presets = Preset.all
+    @pomodoro = Preset.find_by(name: "Pomodoro")
+    @presets = Preset.where(user_id: current_user.id)
     @navbar_render = true
   end
 

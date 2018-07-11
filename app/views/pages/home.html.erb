@@ -1,45 +1,33 @@
-<div class="container text-center">
-
-
+<div class="container-fluid text-center homey">
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="title-box">
-        <h1>One Breath</h1>
+          <h1 class="title-home-page"><%= image_tag("blue_logo.png", :size => "65x65") %> ne Breath Timer</h1>
+          <!-- <h2>Plan your time, get your balance</h2> -->
         </div>
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="sub-title-box">
-        <h2>Plan your time, get your balance</h2>
-      </div>
 
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="obcarousel">
+      <%= render "slider" %>
     </div>
   </div>
 
-  <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
-    <div class="middle-content">
-      <h2>Change your life</h2>
-      <p class="text-justify">
-      Meditation is a age old technique from the sages of the Himalayas. These days people are stressed, I’m sure you are too, and you are looking for a way out. Using one breath is going to solve all your problems, even help you stop smoking crack on the weekends.
-    </p>
-    </div>
-  </div>
 
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="action-buttons-box">
-        <%= link_to "I'm new", new_user_registration_path, :class=> "btn btn-primary resume" %>
+        <%= link_to "I'm new", new_user_registration_path, :class=> "btn obbtn resume  home-cta" %>
       </div>
     </div>
 
     <div class="col-xs-12 col-md-6 col-md-offset-3 ">
       <div class="action-buttons-box">
-        <%= link_to "Sign In", user_session_path, :class=> "btn btn-primary rexit" %>
+        <%= link_to "Sign in", user_session_path, :class=> "btn obbtn rexit" %>
       </div>
     </div>
   </div>
 </div>
-
 
 

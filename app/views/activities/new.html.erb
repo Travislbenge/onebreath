@@ -1,2 +1,17 @@
-<h1>What activity for your breaks?</h1>
-<%= render 'form' %>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="title-box">
+        <h1 class="h1title">Pick your activities</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 ">
+    <%= render "form" %>
+  </div>
+</div>
+<div class="action-buttons-box">
+  <%= link_to "Save Breaks", presets_path, class: "btn obbtn resume" %>
+</div>
+<div class="bottom-blank">
+</div>

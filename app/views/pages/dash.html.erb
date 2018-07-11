@@ -1,0 +1,54 @@
+<% content_for :meta_title, "#{@user.email} Dashboard" %>
+<% content_for :meta_description, "#{@user.email} Dashboard" %>
+<% title "Dashboard" %>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="title-box">
+          <h1 class="h1title">
+          </h1>
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "obavatar-large", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <h2 class="h2subtitle">
+            Welcome <%= @user.first_name %>
+            </h2>
+          <p class="pquote"><script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script></p>
+          <br>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+   <div class="middle-content-dash">
+    <div class="dashbox psmaller">
+    <strong>This week vs. Last week</strong>
+    <br>
+    Meditation: +50% <br>
+    Focus time: +20% <br>
+    <br>
+
+    Have a good session.<br>
+
+    </div>
+  </div>
+</div>
+
+
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="action-buttons-box">
+        <%= link_to "Start Session", presets_path, :class=> "btn obbtn resume start-session" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+      <div class="action-buttons-box">
+        <%= link_to "How to", info_path, :class=> "btn obbtn rexit" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bottom-blank">
+</div>

@@ -5,37 +5,35 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="title-box">
-        <h1>Break time!</h1>
+        <h1 class="h1title">Break time</h1>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="sub-title-box">
-        <h2>Relax, you deserve it!</h2>
+        <!-- <h2>Relax, you deserve it!</h2> -->
       </div>
     </div>
   </div>
- <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
+ <div class="col-xs-12 col-md-4 col-md-offset-4">
     <div class="middle-content">
-      <h2> Pick your break activity </h2>
-       <% @preset.activities.each do |act| %>
-       <div class="presets-box">
+      <div class="sub-title-box">
+        <p class="pbold"> Take your mind off work and pick your break activity </p>
+      </div>
+     </div>
+          <% @preset.activities.each do |act| %>
+       <div class="presets-box gimmemargin">
           <% @break.activity = act %>
           <%= simple_form_for [@timersession, @break] do |f| %>
-        <%= f.association :activity, as: :hidden, value_method: :id %>
-        <%= f.button :submit, value: act.name, class: "btn btn-primary flow-unselected flow-unselected" %>
+          <%= f.association :activity, as: :hidden, value_method: :id %>
+          <%= f.button :submit, act.name, class: "btn obbtn flow-unselected" %>
         <% end %>
         <% end %>
       </div>
-
-     </div>
     </div>
   </div>
-
-<!-- <i class="fas fa-minus-circle"></i><i class="far fa-edit"></i> -->
-
-
-<%= render 'shared/navbar' %>
-
-
+    </div>
+  </div>
+  <div class="bottom-blank">
+</div>

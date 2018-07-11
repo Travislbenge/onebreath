@@ -1,0 +1,42 @@
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js", "chartkick" %>
+
+
+<div class="stats-container">
+  <div class="stats-title">
+    <h2>Session Progress</h2>
+  </div>
+  <div class="time-stats">
+    <div class="time">
+      <%= "Time allocated for today = " %>
+      <%= @working_time * 60 %>
+      <%= "minutes" %>
+      <br>
+      <%= "Time remaning = " %>
+      <% if @remaining_time >= 0 %>
+        <%= @remaining_time %>
+      <% else %>
+        <%= "0" %>
+      <% end %>
+      <%= "minutes" %>
+    </div>
+  </div>
+  <div class="stats-graph">
+    <%= column_chart(@stats, ytitle: "Time (minutes)", xtitle: "Activity", colors: ["#00008B", "#b00"])  %>
+    <div class="time-spent">
+      <% @stats.each do |key, value| %>
+        <%= "#{value} minutes #{key}" %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+  <div class="graph-buttons">
+    <div class="action-buttons-box">
+      <%= link_to "Continue", timer_session_path(@timer_session), :class=> "btn obbtn rexit" %>
+    </div>
+    <div class="action-buttons-box">
+      <%= link_to "Exit to home", presets_path, :class=> "btn obbtn rexit" %>
+    </div>
+  </div>
+  <div class="bottom-blank">
+  </div>
+</div>

@@ -19,6 +19,11 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'countdown'
 gem 'jekyll-spotify'
+gem 'chartkick'
+gem 'groupdate'
+gem 'omniauth-facebook'
+
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -9,10 +9,8 @@ class BreaksController < ApplicationController
     @navbar_render = true
     @activity = Break.find(params[:id]).activity.name
     @break = Break.find(params[:id])
-    @artists = RSpotify::Artist.search(@activity)
-    @albums = RSpotify::Album.search(@activity)
-    @tracks = RSpotify::Track.search(@activity)
-    @cancion = @tracks.first.uri
+    @playlist = RSpotify::Playlist.search('Meditation')
+    @cancion = @playlist.sample.uri
   end
 
   def new

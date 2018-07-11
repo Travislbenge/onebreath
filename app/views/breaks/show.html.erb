@@ -2,39 +2,56 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="title-box">
-        <h1>Enjoy your break!</h1>
+        <h1 class="h1title"><%= "#{@break.activity.name}" %> <br>TIME</h1>
       </div>
     </div>
   </div>
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="sub-title-box">
-        <h2>One breath at a time</h2>
+        <h2></h2>
       </div>
     </div>
-  <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4 middle-content">
+  <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
     <div class="timerfont">
-<!--       <%= @break.duration %> -->
-      <div id="timer" data-sessionid="<%= @break.timer_session.id %>" data-break="<%= @break.id %>" data-breaklimit="<%= @break.length %>">00:00:00
+      <div id="timer2" data-sessionid="<%= @break.timer_session.id %>" data-break="<%= @break.id %>" data-breaklimit="<%= @break.length %>" data-day="<%= @break.timer_session.preset.break_duration %>"><%= @break.timer_session.preset.duration(:break_duration)%>
       </div>
+      <br>
     </div>
     <br>
     <br>
+  </div>
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="action-buttons-box">
-          <%= link_to "Resume", break_path(@break), method: :patch, remote: true , :class=> "btn btn-primary rexit" %>
+          <%= link_to break_path(@break), method: :patch, remote: true do %>
+        <i class="far fa-play-circle fa-3x whiteicon"></i>
+        <% end %>
       </div>
+        <div class="middle-content spotidiv">
+
+        <%if @break.activity.name == "Meditation" %>
+          <p class="pbold">Music for your break<p>
+
+          <iframe src="https://open.spotify.com/embed?uri=<%= @cancion %>" width="250" height="85" frameborder="0" allowtransparency="true" allow="encrypted-media" style="border:none;">
+          </iframe>
+        <% end %>
+
+        </div>
       <div class="action-buttons-box">
-          <%= link_to "Exit", presets_path,  :class=> "btn btn-primary rexit" %>
+          <%= link_to "Exit", presets_path,  :class=> "btn obbtn rexit" %>
       </div>
     </div>
-    <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
-      <div class="action-buttons-box">
-        <h5>Music for your break</h5>
-        <iframe src="https://open.spotify.com/embed?uri=<%= @cancion %>" width="300" height="75" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      </div>
-  </div>
 </div>
-
-
+<div class="bottom-blank">
+</div>
 <%= javascript_pack_tag 'easytimer' %>
+
+
+
+
+
+
+
+
+
+
+

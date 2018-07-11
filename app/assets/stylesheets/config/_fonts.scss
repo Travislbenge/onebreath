@@ -3,16 +3,13 @@
 // Import Fontawesome
 @import url("https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous");
 // Define fonts for body and headers
-$body-font: "Raleway", "Roboto", "sans-serif";
-$headers-font: "Raleway", "Roboto", "sans-serif";
-$base-font: "Raleway", "Roboto", "sans-serif";
+$body-font: "Raleway";
+$headers-font: "Raleway";
+$base-font: "Raleway";
 //To use a font file (.woff) uncomment following lines
-@font-face {
-  font-family: "Raleway";
-  src: font-url('../fonts/Raleway.ttf');
-}
 
-$my-font: "Font Name";
+
+$my-font: "Raleway";
 
 
 // To use a font file (.woff) uncomment following lines

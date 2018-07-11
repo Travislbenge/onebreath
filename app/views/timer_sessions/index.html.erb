@@ -1,0 +1,59 @@
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js", "chartkick" %>
+<div class="lifetime-container">
+  <div class="lifetime-title">
+    <h1>Daily Stats</h1>
+  </div>
+  <div class="daily-stats">
+    <% if @daily_focus != nil && @daily_break != nil %>
+      <div class="total-spent">
+        <%= "Total minutes spent = " %>
+        <%= @daily_focus + @daily_break %>
+      </div>
+      <%end %>
+      <div class="stats-graph">
+      <%= pie_chart(@daily, ytitle: "Time (minutes)", xtitle: "Activity", colors: [ "#00008B", "#4B0082", "#8B0000", "#008000"])  %>
+      <% if @daily_focus != nil && @daily_break != nil %>
+        <% @daily.each do |key, value| %>
+          <%= "#{key}: #{value} minutes" %>
+          <br>
+        <% end %>
+      <% else %>
+        <%= "No stats for today" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="lifetime-title">
+    <h1>Lifetime Stats</h1>
+  </div>
+  <div class="lifetime-stats">
+    <div class="total-spent">
+      <%= "Total minutes spent = " %>
+      <%= @total_focus + @total_break %>
+    </div>
+    <div class="container-chart">
+    <div class="stats-graph">
+    <%= pie_chart(@stats, ytitle: "Time (minutes)", xtitle: "Activity", colors: [ "#00008B", "#4B0082", "#8B0000", "#008000"])  %>
+    <% @stats.each do |key, value| %>
+      <%= "#{key}: #{value} minutes" %>
+      <br>
+    <% end %>
+    </div>
+  </div>
+    <br>
+  </div>
+
+    <div class="lifetime-exit">
+      <% if @timer_sessions.last != nil %>
+        <%= link_to "Stats for last timer session", stats_path(@timer_sessions.last) %>
+      <% end %>
+    </div>
+    <div class="action-buttons-box">
+      <%= link_to "Exit", presets_path, :class=> "btn obbtn rexit" %>
+    </div>
+    </div>
+
+  </div>
+</div>
+<div class="bottom-blank">
+</div>
+

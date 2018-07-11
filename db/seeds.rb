@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+preset = Preset.new(
+  working_day: 2,
+  focus_timer: 25,
+  break_duration: 5,
+  name: "Pomodoro"
+
+  )
+preset.save!

@@ -1,9 +1,8 @@
 import Timer from 'easytimer'
 
 function redirectToBreakNew(timer) {
-  console.log(targetAchieved(timer))
   if(targetAchieved(timer)){
-    const dataSetTimer = document.getElementById("timer").dataset
+    const dataSetTimer = document.getElementById("timer2").dataset
     const idSession = dataSetTimer.sessionid
     const idBreak = dataSetTimer.break
     if (idBreak) {
@@ -17,28 +16,44 @@ function redirectToBreakNew(timer) {
 }
 
 function targetAchieved(timer) {
-  const dataSetLimits = document.getElementById("timer").dataset
+  const dataSetLimits = document.getElementById("timer2").dataset
   const focusLimit = dataSetLimits.limit
   const breakLimit = dataSetLimits.breaklimit
-    console.log(breakLimit)
+  console.log(timer.minutes)
   if (breakLimit) {
-    return (timer.seconds === parseInt(breakLimit)) ? true : false;
+    return (timer.seconds === 0 && timer.minutes === 0) ? true : false;
   } else {
-    console.log(timer.seconds)
-    console.log(parseInt(focusLimit))
-    return (timer.seconds === parseInt(focusLimit)) ? true : false;
+    return (timer.seconds === 0 && timer.minutes === 0) ? true : false;
   }
 }
 
-function startTimerSession() {
+// function startTimerSession() {
+//   const timer = new Timer();
+//   timer.start();
+//   timer.addEventListener('secondsUpdated', function (e) {
+//     $('#timer').html(timer.getTimeValues().toString());
+
+
+//   });
+// }
+// global.startTimerSession = startTimerSession
+
+
+
+function countDownSession() {
+  const dataSetTime = document.getElementById("timer2").dataset
+  const workingDay = dataSetTime.day
   const timer = new Timer();
-  timer.start();
-  timer.addEventListener('secondsUpdated', function (e) {
-    $('#timer').html(timer.getTimeValues().toString());
+timer.start({countdown: true, startValues: {minutes: parseInt(workingDay)}});
+$('#timer2').html(timer.getTimeValues().toString());
+timer.addEventListener('secondsUpdated', function (e) {
+    $('#timer2').html(timer.getTimeValues().toString());
     redirectToBreakNew(timer.getTimeValues())
-  });
+});
 }
-global.startTimerSession = startTimerSession
+global.countDownSession = countDownSession
+
+
 
 // import Timer from 'easytimer'
 

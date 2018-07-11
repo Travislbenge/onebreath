@@ -1,19 +1,16 @@
 <div class="container text-center">
+
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="title-box">
-        <h1>Edit new preset</h1>
+        <h1>Edit your preset</h1>
         </div>
       </div>
     </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="sub-title-box">
-        <h2>Try something new</h2>
-      </div>
-    </div>
-  </div>
-    <%= render 'form' %>
+  <%= render 'form' %>
+</div>
+<div class="bottom-blank">
 </div>
 
+<%= javascript_pack_tag 'slider' %>
+<%= stylesheet_pack_tag 'slider-style' %>

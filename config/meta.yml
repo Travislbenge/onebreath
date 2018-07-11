@@ -1,0 +1,5 @@
+meta_product_name: "One Breath Timer"
+meta_title: "Plan your day, find your balance"
+meta_description: "One Breath Timer combines the focus of the pomodoro technique with the relaxation of meditation."
+meta_image: "og-image.png"                       # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
